@@ -18,8 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/addRole', 'HomeController@addRole')->name('home');
-Route::get('/home/distributionRole', 'HomeController@distributionRole')->name('home');
-Route::get('/home/addPermission', 'HomeController@addPermission')->name('home');
-Route::get('/home/hasRole', 'HomeController@hasRole')->name('home');
+Route::get('/home/addRole', 'HomeController@addRole')->name('home-addRole');
+Route::get('/home/distributionRole', 'HomeController@distributionRole')->name('home-distributionRole');
+Route::get('/home/addPermission', 'HomeController@addPermission')->name('home-addPermission');
+Route::get('/home/hasRole', 'HomeController@hasRole')->name('home-hasRole');
 

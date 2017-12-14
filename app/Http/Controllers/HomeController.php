@@ -7,6 +7,7 @@ use App\Role;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
@@ -94,12 +95,14 @@ class HomeController extends Controller
      */
     public function hasRole()
     {
-        $user = Auth::user();
+        $permission=Route::currentRouteName();
+        var_dump($permission);
+       /* $user = Auth::user();
         //$hasRole=$user->hasRole('admin');
         $hasRole=$user->hasRole(['owner', 'admin'], true);
         var_dump($hasRole);
 
-        $permission=$user->can('create-post');
-        var_dump($permission);
+        $permission=$user->can('create-post');*/
+
     }
 }
