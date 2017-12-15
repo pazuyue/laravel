@@ -30,14 +30,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        $("#usermain").click(function(){
-            htmlobj=$.ajax({url:"{{ url('/user/usermain') }}",async:false});
-            $("#main").html(htmlobj.responseText);
-        });
-    });
-</script>
+<script typet="text/javascript" src="{{ asset('js/useradmin.js') }}"></script>
 @endsection
 

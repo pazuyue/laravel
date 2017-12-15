@@ -8,10 +8,21 @@ use App\User;
 
 class UserController extends Controller
 {
+    /**
+     * 显示用户列表
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function userList(){
         $users = User::all();
         return view('users.usersmain',compact('users'));
-        //return view('users.usersmain')->with(compact('users'));
+    }
+
+    /**
+     * 添加用户
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function useradd(){
+        return view('users.useradd');
     }
 
 }
