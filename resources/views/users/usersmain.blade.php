@@ -10,26 +10,17 @@
     </tr>
     </thead>
     <tbody>
+    @foreach($users as $user)
     <tr>
-        <td>Tanmay</td>
-        <td>Bangalore</td>
-        <td>560001</td>
-        <td>560001</td>
-        <td>560001</td>
+        <td>{{ $user -> name  }}</td>
+        <td>{{ $user -> email  }}</td>
+        <td>{{ $user -> created_at  }}</td>
+        <td>{{ $user -> updated_at  }}</td>
+        <td>
+            <button type="button" class="btn btn-default btn-sm">修改</button>
+            <button type="button" class="btn btn-danger btn-sm">删除</button>
+        </td>
     </tr>
-    <tr>
-        <td>Sachin</td>
-        <td>Mumbai</td>
-        <td>400003</td>
-        <td>400003</td>
-        <td>400003</td>
-    </tr>
-    <tr>
-        <td>Uma</td>
-        <td>Pune</td>
-        <td>411027</td>
-        <td>411027</td>
-        <td>411027</td>
-    </tr>
+    @endforeach
     </tbody>
 </table>

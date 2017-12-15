@@ -38,7 +38,6 @@
             $("#main").html(htmlobj.responseText);
         });
     });
-
 </script>
 @endsection
 
