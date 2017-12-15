@@ -20,7 +20,6 @@
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#" id="usermain">用户列表</a></li>
                             <li><a href="#">用户添加</a></li>
-                            <li><a href="#">用户BI</a></li>
                         </ul>
                     </div>
                 </div>
