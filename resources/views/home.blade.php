@@ -30,6 +30,5 @@
         </div>
     </div>
 </div>
-<script typet="text/javascript" src="{{ asset('js/useradmin.js') }}"></script>
 @endsection
 

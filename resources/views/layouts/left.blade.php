@@ -18,8 +18,8 @@
                 <div id="collapseOne" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#" class="click" url="/user/usermain">用户列表</a></li>
-                            <li><a href="#" class="click" url="/user/useradd">用户添加</a></li>
+                            <li><a href="#" class="clickleft" url="/user/usermain">用户列表</a></li>
+                            <li><a href="#" class="clickleft" url="/user/useradd">用户添加</a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,3 +61,4 @@
         </div>
     </div>
 </div>
+<script typet="text/javascript" src="{{ asset('js/leftmenu.js') }}"></script>
