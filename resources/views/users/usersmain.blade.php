@@ -1,0 +1,35 @@
+<table class="table table-bordered">
+    <caption>用户列表</caption>
+    <thead>
+    <tr>
+        <th>用户名</th>
+        <th>EMAIL</th>
+        <th>生成时间</th>
+        <th>修改时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Tanmay</td>
+        <td>Bangalore</td>
+        <td>560001</td>
+        <td>560001</td>
+        <td>560001</td>
+    </tr>
+    <tr>
+        <td>Sachin</td>
+        <td>Mumbai</td>
+        <td>400003</td>
+        <td>400003</td>
+        <td>400003</td>
+    </tr>
+    <tr>
+        <td>Uma</td>
+        <td>Pune</td>
+        <td>411027</td>
+        <td>411027</td>
+        <td>411027</td>
+    </tr>
+    </tbody>
+</table>

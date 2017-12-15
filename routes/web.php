@@ -23,3 +23,5 @@ Route::get('/home/distributionRole', 'HomeController@distributionRole')->name('h
 Route::get('/home/addPermission', 'HomeController@addPermission')->name('home-addPermission');
 Route::get('/home/hasRole', 'HomeController@hasRole')->name('home-hasRole');
 
+Route::get('/user/usermain', 'User\UserController@userList')->name('user-userList');
+

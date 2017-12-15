@@ -11,7 +11,7 @@
                     <div class="col-lg-3">
                 @include('layouts.left')
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-9" id="main">
                         @if (session('status'))
                             <div class="alert alert-success">
                                 {{ session('status') }}
@@ -30,4 +30,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#usermain").click(function(){
+            htmlobj=$.ajax({url:"{{ url('/user/usermain') }}",async:false});
+            $("#main").html(htmlobj.responseText);
+        });
+    });
+
+</script>
 @endsection
+
