@@ -25,5 +25,6 @@ Route::get('/home/hasRole', 'HomeController@hasRole')->name('home-hasRole');
 
 Route::get('/user/usermain', 'User\UserController@userList')->name('user-userList');
 Route::get('/user/useradd', 'User\UserController@userAdd')->name('user-userAdd');
-Route::get('/user/useredit', 'User\UserController@userEditShow')->name('user-userEdit');
+Route::get('/user/useredit/{id}', 'User\UserController@userEditShow')->name('user-userEditShow');
+Route::post('/user/useredit', 'User\UserController@userEdit')->name('user-userEdit');
 

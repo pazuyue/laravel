@@ -17,7 +17,7 @@
         <td>{{ $user -> created_at  }}</td>
         <td>{{ $user -> updated_at  }}</td>
         <td>
-            <button type="button" class="clickauser btn btn-default btn-sm" url="/user/useredit">修改</button>
+            <button type="button" class="clickauser btn btn-default btn-sm" url="/user/useredit/{{ $user -> id }}">修改</button>
             <button type="button" class="clickauser btn btn-danger btn-sm">删除</button>
         </td>
     </tr>

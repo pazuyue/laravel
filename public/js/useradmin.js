@@ -2,7 +2,6 @@
 $(document).ready(function(){
     $(".clickauser").click(function(){
         $url=$(this).attr('url');
-        alert($url);
         htmlobj=$.ajax({url:$url,async:false});
         $("#main").empty();
         $("#main").html(htmlobj.responseText);

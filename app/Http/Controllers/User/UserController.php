@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Support\Facades\Auth;
+
 
 
 class UserController extends Controller
@@ -26,9 +26,20 @@ class UserController extends Controller
         return view('users.useradd');
     }
 
-    public function userEditShow(){
-        $user = Auth::user();
-        return view('users.useredit',compact('user'));
-}
+    /**
+     * 显示用户修改页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function userEditShow($id){
+        $user=User::findOrFail($id);
+        return view('users.useredit', ['user' => $user]);
+    }
+
+    /**
+     * 用户修改处理
+     */
+    public function userEdit(){
+
+    }
 
 }
