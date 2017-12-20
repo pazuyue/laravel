@@ -14,8 +14,20 @@ class UserController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function userList(){
-        $users = User::all();
+        $users = User::withTrashed()
+            ->get();
         return view('users.usersmain',compact('users'));
+    }
+
+    public function userDel($id){
+        $users = User::find($id);
+        $users->delete();
+        if($users->trashed()){
+
+            return $this->userList();
+        }else{
+            echo '软删除失败！';
+        }
     }
 
     /**

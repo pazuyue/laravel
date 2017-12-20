@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
-
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/addRole', 'HomeController@addRole')->name('home-addRole');
 Route::get('/home/distributionRole', 'HomeController@distributionRole')->name('home-distributionRole');
@@ -27,4 +27,5 @@ Route::get('/user/usermain', 'User\UserController@userList')->name('user-userLis
 Route::get('/user/useradd', 'User\UserController@userAdd')->name('user-userAdd');
 Route::get('/user/useredit/{id}', 'User\UserController@userEditShow')->name('user-userEditShow');
 Route::post('/user/useredit', 'User\UserController@userEdit')->name('user-userEdit');
+Route::get('/user/useredel/{id}', 'User\UserController@userDel')->name('user-userDel');
 
