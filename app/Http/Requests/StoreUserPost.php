@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreUserPost extends FormRequest
@@ -16,6 +17,17 @@ class StoreUserPost extends FormRequest
     public function authorize()
     {
         return true;
+    }
+    /**
+     * Handle a failed authorization attempt.
+     *
+     * @return void
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    protected function failedAuthorization()
+    {
+        throw new AuthorizationException('你个大鸡巴，没有权限操作！');
     }
 
     /**

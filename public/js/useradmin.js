@@ -17,6 +17,10 @@ $(document).ready(function(){
                 var message=data.responseText;
                 var jsonObj = $.parseJSON(message);
                 $("#message").empty();
+                if(data.status==403){
+                    $("#message").append('<div class="alert alert-info">'+ jsonObj.message+'</div>');
+                }
+
                 $.each( jsonObj.errors, function(index, content)
                 {
                     $("#message").append('<div class="alert alert-danger">'+content+'</div>');
