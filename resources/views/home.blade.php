@@ -23,7 +23,6 @@
                             <p><a class="btn btn-primary btn-lg" role="button">
                                     了解更多</a>
                             </p>
-
                     </div>
                 </div>
             </div>

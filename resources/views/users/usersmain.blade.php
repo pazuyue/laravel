@@ -27,7 +27,7 @@
             @if(empty($user -> deleted_at))
             <button type="button" class="clickauser btn btn-danger btn-sm" url="/user/useredel/{{ $user -> id }}">冻结</button>
             @else
-            <button type="button" class="clickauser btn btn-primary btn-sm" url="/user/useredel/{{ $user -> id }}">解冻</button>
+            <button type="button" class="clickauser btn btn-primary btn-sm" url="/user/userthaw/{{ $user -> id }}">解冻</button>
             @endif
         </td>
     </tr>

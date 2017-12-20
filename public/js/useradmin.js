@@ -6,4 +6,27 @@ $(document).ready(function(){
         $("#main").empty();
         $("#main").html(htmlobj.responseText);
     });
+
+    $("#formadd").click(function() {
+        $action=$("#form").attr('action');
+        $.ajax({
+            type: 'POST',
+            url: $action,
+            data: $("#form").serialize(),
+            error: function(data) {
+                var message=data.responseText;
+                var jsonObj = $.parseJSON(message);
+                $("#message").empty();
+                $.each( jsonObj.errors, function(index, content)
+                {
+                    $("#message").append('<div class="alert alert-danger">'+content+'</div>');
+                });
+            },
+            success: function(data) {
+                alert("添加成功！");
+                $("#main").html(data);
+            }
+        });
+    });
 });
+

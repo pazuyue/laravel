@@ -19,7 +19,7 @@
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#" class="clickleft" url="/user/usermain">用户列表</a></li>
-                            <li><a href="#" class="clickleft" url="/user/useradd">用户添加</a></li>
+                            <li><a href="#" class="clickleft" url="/user/useraddshow">用户添加</a></li>
                         </ul>
                     </div>
                 </div>
