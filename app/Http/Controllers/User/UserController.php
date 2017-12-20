@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserPost;
 use App\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
+use Mockery\Exception;
 
 
 class UserController extends Controller
@@ -32,7 +32,7 @@ class UserController extends Controller
         if($users->trashed()){
             return $this->userList();
         }else{
-            echo '软删除失败！';
+            throw new Exception("软删除失败！");
         }
     }
 
@@ -46,7 +46,7 @@ class UserController extends Controller
         if($users->restore()){
             return $this->userList();
         }else{
-            echo '软删除恢复失败！';
+             throw new Exception("软删除恢复失败！");
         }
 
     }
