@@ -16,7 +16,7 @@ class StoreUserPost extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
     /**
      * Handle a failed authorization attempt.
