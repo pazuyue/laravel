@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserPost;
 use App\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Mockery\Exception;
 
 
@@ -80,15 +81,29 @@ class UserController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function userEditShow($id){
-        $user=User::findOrFail($id);
+        $user=User::withTrashed()->findOrFail($id);
         return view('users.useredit', ['user' => $user]);
     }
 
     /**
      * 用户修改处理
      */
-    public function userEdit(){
-
+    public function userEdit(Request $request){
+        $this->validate($request, [
+            'id' => 'bail|required',
+            'name' => 'bail|required|max:191',
+            'email' => 'bail|required|max:191',
+            'password' => 'bail|required|confirmed',
+        ]);
+        $user=User::withTrashed()->findOrFail($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if($user->password!=$request->password)
+        {
+            $user->password = $request->password;
+        }
+        $user->save();
+        return $this->userList();
     }
 
 }

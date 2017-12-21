@@ -16,7 +16,7 @@ class StoreUserPost extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
     /**
      * Handle a failed authorization attempt.
@@ -40,7 +40,7 @@ class StoreUserPost extends FormRequest
         return [
             'name' => 'bail|required|unique:users|max:191',
             'email' => 'bail|required|unique:users|max:191',
-            'password' => 'bail|required|confirmed|max:6',
+            'password' => 'bail|required|confirmed|max:50',
         ];
     }
 
