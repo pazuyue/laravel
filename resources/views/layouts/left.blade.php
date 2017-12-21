@@ -35,7 +35,7 @@
                 <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#"> 角色列表</a></li>
+                            <li><a href="#" class="clickleft" url="/role/rolelist"> 角色列表</a></li>
                             <li><a href="#">角色添加</a></li>
                         </ul>
                     </div>

@@ -92,7 +92,7 @@ class UserController extends Controller
         $this->validate($request, [
             'id' => 'bail|required',
             'name' => 'bail|required|max:191',
-            'email' => 'bail|required|max:191',
+            'email' => 'bail|required|email|max:191',
             'password' => 'bail|required|confirmed',
         ]);
         $user=User::withTrashed()->findOrFail($request->id);

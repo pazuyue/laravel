@@ -39,8 +39,8 @@ class StoreUserPost extends FormRequest
     {
         return [
             'name' => 'bail|required|unique:users|max:191',
-            'email' => 'bail|required|unique:users|max:191',
-            'password' => 'bail|required|confirmed|max:50',
+            'email' => 'bail|required|email|unique:users|max:191',
+            'password' => 'bail|required|confirmed|max:60',
         ];
     }
 
