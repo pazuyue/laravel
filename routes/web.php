@@ -46,7 +46,7 @@ Route::get('/permission/permissionadd', 'Permission\PermissionController@permiss
 Route::put('/permission/permissionadd', 'Permission\PermissionController@permissionAdd')->name('permission-permissionAdd');
 Route::get('/permission/permissiondel/{id}', 'Permission\PermissionController@permissionDel')->name('Permission-permissionDel');
 Route::get('/permission/permissionhaw/{id}', 'Permission\PermissionController@permissionhaw')->name('Permission-permissionhaw');
-Route::get('/permission/permissionedit/{id}', 'Permission\PermissionController@permissionEditShow')->name('Permission-permissionEdit');
+Route::get('/permission/permissionedit/{id}', 'Permission\PermissionController@permissionEditShow')->name('Permission-permissionEditShow');
 Route::put('/permission/permissionedit', 'Permission\PermissionController@permissionEdit')->name('Permission-permissionEdit');
 
 
