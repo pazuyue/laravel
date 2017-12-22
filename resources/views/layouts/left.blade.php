@@ -52,8 +52,8 @@
                 <div id="collapseThr" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#"> 权限列表</a></li>
-                            <li><a href="#">权限添加</a></li>
+                            <li><a href="#" class="clickleft" url="/permission/permissionlist"> 权限列表</a></li>
+                            <li><a href="#" class="clickleft" url="/permission/permissionadd">权限添加</a></li>
                         </ul>
                     </div>
                 </div>

@@ -24,7 +24,6 @@ class RoleController extends Controller
      * @param $id
      */
     public function roleeDel($id){
-
         $role = Role::find($id);
         $role->delete();
         if($role->trashed()){
