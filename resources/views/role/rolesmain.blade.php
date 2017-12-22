@@ -27,7 +27,7 @@
                 @endif
                 <td>
                     <button type="button" class="clickauser btn btn-default btn-sm" url="/role/roleedit/{{ $role -> id }}">修改</button>
-                    @if(empty($user -> deleted_at))
+                    @if(empty($role -> deleted_at))
                         <button type="button" class="clickauser btn btn-danger btn-sm" url="/role/roleedel/{{ $role -> id }}">冻结</button>
                     @else
                         <button type="button" class="clickauser btn btn-primary btn-sm" url="/role/rolethaw/{{ $role -> id }}">解冻</button>

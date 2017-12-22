@@ -49,7 +49,6 @@ class UserController extends Controller
         }else{
              throw new Exception("软删除恢复失败！");
         }
-
     }
 
     /**

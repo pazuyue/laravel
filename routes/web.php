@@ -34,6 +34,7 @@ Route::get('/user/userthaw/{id}', 'User\UserController@userThaw')->name('user-us
 
 
 Route::get('/role/rolelist', 'Role\RoleController@roleList')->name('role-roleList');
-
+Route::get('/role/roleedel/{id}', 'Role\RoleController@roleeDel')->name('role-roleeDel');
+Route::get('/role/rolethaw/{id}', 'Role\RoleController@roleThaw')->name('role-roleThaw');
 
 
