@@ -27,7 +27,6 @@ Route::get('/user/usermain', 'User\UserController@userList')->name('user-userLis
 Route::get('/user/useraddshow', 'User\UserController@userAddShow')->name('user-userAddShow');
 Route::post('/user/useradd', 'User\UserController@userAdd')->name('user-userAdd');
 Route::get('/user/useredit/{id}', 'User\UserController@userEditShow')->name('user-userEditShow');
-Route::put('/user/useredit', 'User\UserController@userEdit')->name('user-userEdit');
 Route::post('/user/useredit', 'User\UserController@userEdit')->name('user-userEdit');
 Route::get('/user/useredel/{id}', 'User\UserController@userDel')->name('user-userDel');
 Route::get('/user/userthaw/{id}', 'User\UserController@userThaw')->name('user-userThaw');
@@ -36,5 +35,9 @@ Route::get('/user/userthaw/{id}', 'User\UserController@userThaw')->name('user-us
 Route::get('/role/rolelist', 'Role\RoleController@roleList')->name('role-roleList');
 Route::get('/role/roleedel/{id}', 'Role\RoleController@roleeDel')->name('role-roleeDel');
 Route::get('/role/rolethaw/{id}', 'Role\RoleController@roleThaw')->name('role-roleThaw');
+Route::get('/role/roleedit/{id}', 'Role\RoleController@roleEditShow')->name('role-roleEditShow');
+Route::put('/role/roleedit', 'Role\RoleController@roleEdit')->name('role-roleEdit');
+Route::get('/role/roleaddshow', 'Role\RoleController@roleAddShow')->name('role-roleAddShow');
+Route::put('/role/roleadd', 'Role\RoleController@roleAdd')->name('role-roleAdd');
 
 
