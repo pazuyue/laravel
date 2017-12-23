@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserPost;
+use App\Role;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -103,6 +104,45 @@ class UserController extends Controller
         }
         $user->save();
         return $this->userList();
+    }
+
+    /**
+     * 用户角色绑定页面显示
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function userRoleShow($id){
+        $user=User::find($id);
+        $roles = Role::all();
+        $hasroles=$user->roles;
+        foreach ($roles as $key =>&$v)
+        {
+            $v->hasPermission =false;
+            foreach ($hasroles as $row){
+                if($row->id == $v->id){
+                    $v->hasRole = true;
+                }
+            }
+        }
+        return view('users.userrole',['user' => $user,'roles'=>$roles]);
+    }
+
+    /**
+     * 用户角色绑定
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function userRole(Request $request){
+        $this->validate($request, [
+            'userID' => 'bail|required',
+        ]);
+        $user=User::findOrFail($request->userID);
+        $result=$user->roles()->sync($request->roleID);
+        if($result){
+            return $this->userRoleShow($request->userID);
+        }else{
+            throw new Exception("用户角色绑定失败！");
+        }
     }
 
 }

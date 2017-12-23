@@ -32,6 +32,8 @@ Route::get('/user/useredit/{id}', 'User\UserController@userEditShow')->name('use
 Route::post('/user/useredit', 'User\UserController@userEdit')->name('user-userEdit');
 Route::get('/user/useredel/{id}', 'User\UserController@userDel')->name('user-userDel');
 Route::get('/user/userthaw/{id}', 'User\UserController@userThaw')->name('user-userThaw');
+Route::get('/user/userrole/{id}', 'User\UserController@userRoleShow')->name('user-userRoleShow');
+Route::put('/user/userrole', 'User\UserController@userRole')->name('user-userRoleShow');
 
 Route::get('/role/rolelist', 'Role\RoleController@roleList')->name('role-roleList');
 Route::get('/role/roleedel/{id}', 'Role\RoleController@roleeDel')->name('role-roleeDel');

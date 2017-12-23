@@ -126,15 +126,24 @@ class RoleController extends Controller
         return view('role.rolepermissionRole',['role' => $role,'permissions'=>$Permissions]);
     }
 
+    /**
+     * 角色权限绑定
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws Exception
+     */
     public function permissionRole(Request $request){
         $this->validate($request, [
             'roleID' => 'bail|required',
-            'permissionID' => '',
         ]);
         $role=Role::findOrFail($request->roleID);
 
         $result=$role->perms()->sync($request->permissionID);
-        return $this->permissionRoleShow($request->roleID);
+        if($result){
+            return $this->permissionRoleShow($request->roleID);
+        }else{
+            throw new Exception("角色权限绑定失败！");
+        }
     }
 
 }

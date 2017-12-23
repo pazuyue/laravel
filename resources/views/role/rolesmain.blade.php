@@ -26,7 +26,7 @@
                     <td>冻结</td>
                 @endif
                 <td>
-                    <button type="button" class="clickauser btn btn-success btn-sm" url="/role/permissionrole/{{ $role -> id }}">绑定权限</button>
+                    <button type="button" class="clickauser btn btn-success btn-sm" url="/role/permissionrole/{{ $role -> id }}">权限绑定</button>
                     <button type="button" class="clickauser btn btn-default btn-sm" url="/role/roleedit/{{ $role -> id }}">修改</button>
                     @if(empty($role -> deleted_at))
                         <button type="button" class="clickauser btn btn-danger btn-sm" url="/role/roleedel/{{ $role -> id }}">冻结</button>

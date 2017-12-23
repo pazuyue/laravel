@@ -24,6 +24,7 @@
                     <td>冻结</td>
                 @endif
                 <td>
+                    <button type="button" class="clickauser btn btn-success btn-sm" url="/user/userrole/{{ $user -> id }}">角色绑定</button>
                     <button type="button" class="clickauser btn btn-default btn-sm" url="/user/useredit/{{ $user -> id }}">修改</button>
                     @if(empty($user -> deleted_at))
                         <button type="button" class="clickauser btn btn-danger btn-sm" url="/user/useredel/{{ $user -> id }}">冻结</button>
