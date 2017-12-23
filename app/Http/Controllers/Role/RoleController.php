@@ -110,13 +110,31 @@ class RoleController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function permissionRole($id){
+    public function permissionRoleShow($id){
         $role=Role::withTrashed()->findOrFail($id);
+        $haspermissions=$role->perms;
         $Permissions = Permission::all();
-       /* $data['role']=$role;
-        $data['Permissions']=$Permissions;
-        dump($role);*/
+        foreach ($Permissions as $key =>&$v)
+        {
+            $v->hasPermission =false;
+            foreach ($haspermissions as $row){
+                if($row->id == $v->id){
+                    $v->hasPermission = true;
+                }
+            }
+        }
         return view('role.rolepermissionRole',['role' => $role,'permissions'=>$Permissions]);
+    }
+
+    public function permissionRole(Request $request){
+        $this->validate($request, [
+            'roleID' => 'bail|required',
+            'permissionID' => '',
+        ]);
+        $role=Role::findOrFail($request->roleID);
+
+        $result=$role->perms()->sync($request->permissionID);
+        return $this->permissionRoleShow($request->roleID);
     }
 
 }

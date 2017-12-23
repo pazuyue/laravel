@@ -1,9 +1,10 @@
 <div id="message"></div>
-<form class="form-horizontal" role="form" id="form" action="{{url("/role/roleadd")}}" method="POST">
+<form class="form-horizontal" role="form" id="form" action="{{url("/role/permissionrole")}}" method="POST">
     <div class="form-group">
         <label for="firstname" class="col-sm-6 text-left">角色名称：{{$role->display_name}}</label>
         <div class="col-sm-6">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <input type="hidden" name="roleID" value="{{$role->id}}">
             <input type="hidden" name="_method" value="PUT">
         </div>
     </div>
@@ -17,7 +18,8 @@
         <div class="col-sm-11 col-sm-offset-1">
             @foreach($permissions as $permission)
                     <div class="col-sm-11">
-                    <input type="checkbox" id="inlineCheckbox1" value="{{$permission->id}}"> {{$permission->display_name}}
+                    <input type="checkbox" id="inlineCheckbox1" name="permissionID[]" value="{{$permission->id}}" @if($permission->hasPermission)) checked=”checked” @endif>
+                        {{$permission->display_name}}
                     <b>【描述： {{$permission->description}} 】</b>
                     </div>
             @endforeach
