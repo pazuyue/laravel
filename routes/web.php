@@ -40,6 +40,8 @@ Route::get('/role/roleedit/{id}', 'Role\RoleController@roleEditShow')->name('rol
 Route::put('/role/roleedit', 'Role\RoleController@roleEdit')->name('role-roleEdit');
 Route::get('/role/roleaddshow', 'Role\RoleController@roleAddShow')->name('role-roleAddShow');
 Route::put('/role/roleadd', 'Role\RoleController@roleAdd')->name('role-roleAdd');
+Route::get('/role/permissionrole/{id}', 'Role\RoleController@permissionRole')->name('role-permissionRole');
+
 
 Route::get('/permission/permissionlist', 'Permission\PermissionController@permissionList')->name('permission-permissionList');
 Route::get('/permission/permissionadd', 'Permission\PermissionController@permissionAddShow')->name('permission-permissionAddShow');

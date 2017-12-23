@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Role;
 
 use App\Http\Controllers\Controller;
+use App\Permission;
 use App\Role;
 use Exception;
 use Illuminate\Http\Request;
@@ -102,6 +103,20 @@ class RoleController extends Controller
         $role->description = $request->description;
         $role->save();
         return $this->roleList();
+    }
+
+    /**
+     * 显示权限列表
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function permissionRole($id){
+        $role=Role::withTrashed()->findOrFail($id);
+        $Permissions = Permission::all();
+       /* $data['role']=$role;
+        $data['Permissions']=$Permissions;
+        dump($role);*/
+        return view('role.rolepermissionRole',['role' => $role,'permissions'=>$Permissions]);
     }
 
 }
