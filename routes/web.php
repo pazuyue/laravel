@@ -19,11 +19,11 @@ Route::get('/home/addRole', 'HomeController@addRole')->name('home-addRole');
 Route::get('/home/distributionRole', 'HomeController@distributionRole')->name('home-distributionRole');
 Route::get('/home/addPermission', 'HomeController@addPermission')->name('home-addPermission');
 Route::get('/home/hasRole', 'HomeController@hasRole')->name('home-hasRole');*/
-
+Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::group(['middleware' => ['checkPermission']], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+
     Route::get('/user/usermain', 'User\UserController@userList')->name('user-userList');
     Route::get('/user/useraddshow', 'User\UserController@userAddShow')->name('user-userAddShow');
     Route::post('/user/useradd', 'User\UserController@userAdd')->name('user-userAdd');
