@@ -14,7 +14,7 @@ class PermissionController extends Controller
      */
     public function permissionList(){
         $permissions = Permission::withTrashed()
-            ->get();
+            ->paginate();
         return view('permission.permissionmain',compact('permissions'));
     }
 
