@@ -18,13 +18,12 @@ class CheckPermission
     {
         $permission=Route::currentRouteName();
         $user=$request->user();
-        if($user->hasRole('super_admin')){
-
-        }else{
+        if(!$user->hasRole('super_admin')){
             if(!$user->can($permission)){
                 abort(403, 'Unauthorized permission.');
             }
         }
+
         return $next($request);
     }
 }
