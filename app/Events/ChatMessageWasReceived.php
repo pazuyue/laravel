@@ -36,7 +36,7 @@ class ChatMessageWasReceived implements ShouldBroadcast
     {
         //return new PrivateChannel('chat-room.1');
         return [
-            "chat-room.1"
+            "chat-room"
         ];
     }
 }

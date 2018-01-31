@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -63,23 +66,35 @@
                 margin-bottom: 30px;
             }
         </style>
+        <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+
+
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+    <script>
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
 
+        var pusher = new Pusher('59d6a0dfdd5203f5463f', {
+            cluster: 'ap1',
+            encrypted: true
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            alert(data.message);
+        });
+
+        var channel2 = pusher.subscribe('chat-room');
+        channel2.bind('App\\Events\\ChatMessageWasReceived', function(data) {
+            $("#info").append('<div class="panel panel-default"> <div class="panel-heading">用户：'+data.user.name+'留言</div><div class="panel-body">'+data.chatMessage.message+'</div></div>');
+        });
+    </script>
+
+        <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div id="info">
+
                 </div>
 
                 <div class="links">
@@ -93,3 +108,4 @@
         </div>
     </body>
 </html>
+
