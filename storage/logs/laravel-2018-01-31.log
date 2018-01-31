@@ -812,3 +812,7 @@
 #32 D:\\phpStudy\\WWW\\laraver\\pusher\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #33 {main}
 "} 
+[2018-01-31 13:39:47] local.ERROR: SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xB2\xE2\xCA\xD4' for column 'message' at row 1 (SQL: insert into `chat_messages` (`user_id`, `message`, `updated_at`, `created_at`) values (1, ≤‚ ‘, 2018-01-31 13:39:47, 2018-01-31 13:39:47))  
+[2018-01-31 13:39:57] local.ERROR: SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xB2\xE2\xCA\xD4' for column 'message' at row 1 (SQL: insert into `chat_messages` (`user_id`, `message`, `updated_at`, `created_at`) values (1, ≤‚ ‘, 2018-01-31 13:39:57, 2018-01-31 13:39:57))  
+[2018-01-31 13:41:49] local.ERROR: SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xB2\xE2\xCA\xD4' for column 'message' at row 1 (SQL: insert into `chat_messages` (`user_id`, `message`, `updated_at`, `created_at`) values (1, ≤‚ ‘, 2018-01-31 13:41:49, 2018-01-31 13:41:49))  
+[2018-01-31 13:43:17] local.ERROR: SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xB2\xE2\xCA\xD4' for column 'message' at row 1 (SQL: insert into `chat_messages` (`user_id`, `message`, `updated_at`, `created_at`) values (1, ≤‚ ‘, 2018-01-31 13:43:17, 2018-01-31 13:43:17))  

@@ -9,4 +9,25 @@ php artisan serve 启动项目
 添加User表软删除       
 use SoftDeletes;   
 protected $dates = ['delete_at'];
-位置：vendor\laravel\framework\src\Illuminate\Foundation\Auth\User.php
+#####位置：vendor\laravel\framework\src\Illuminate\Foundation\Auth\User.php
+
+#####位置：D:\phpStudy\WWW\laraver\pusher\config\broadcasting.php
+ 'pusher' => [
+            'driver' => 'pusher',
+            'key' => env('PUSHER_APP_KEY'),
+            'secret' => env('PUSHER_APP_SECRET'),
+            'app_id' => env('PUSHER_APP_ID'),
+            'options' => [
+                'cluster' => 'ap1',
+                //'encrypted' => true,
+            ],
+        ],
+
+####pusher填坑
+#####位置：D:\phpStudy\WWW\laraver\pusher\vendor\laravel\framework\src\Illuminate\Broadcasting\Broadcasters\PusherBroadcaster.php
+broadcast函数      
+throw new BroadcastException(
+                       is_bool($response['body']) ? 'Failed to connect to Pusher.' : $response['body']
+                   );
+                  
+use Pusher\Pusher 改为 use Pusher
