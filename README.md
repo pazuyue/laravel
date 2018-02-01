@@ -30,4 +30,7 @@ throw new BroadcastException(
                        is_bool($response['body']) ? 'Failed to connect to Pusher.' : $response['body']
                    );
                   
-use Pusher\Pusher 改为 use Pusher
+#####use Pusher\Pusher 改为 use Pusher         
+ D:\phpStudy\WWW\laraver\pusher\vendor\laravel\framework\src\Illuminate\Broadcasting\Broadcasters\PusherBroadcaster.php      
+ D:\phpStudy\WWW\laraver\pusher\vendor\laravel\framework\src\Illuminate\Broadcasting\BroadcastManager.php
+BROADCAST_DRIVER=pusher 

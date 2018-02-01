@@ -1,1 +1,0 @@
-https://api-ap1.pusher.com:443/apps/466516/events?auth_key=59d6a0dfdd5203f5463f&auth_signature=db633b7b3759d3a5520194c7dbd79e6dd79f8ac96a3d610374baa49c2e11c618&auth_timestamp=1517398681&auth_version=1.0&body_md5=2ea9f6e9075be8053617e273e9cd349d
