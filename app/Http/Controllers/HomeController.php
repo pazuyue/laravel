@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Permission;
 use App\Role;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {

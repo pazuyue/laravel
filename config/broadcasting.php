@@ -38,6 +38,7 @@ return [
             'options' => [
                 'cluster' => 'ap1',
                 //'encrypted' => true,
+
             ],
         ],
 
