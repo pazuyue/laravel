@@ -34,9 +34,9 @@ class ChatMessageWasReceived implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('chat-room.1');
-       /* return [
-            "chat-room"
-        ];*/
+        //return new PrivateChannel('chat-room.1');
+        return [
+            "presence-chat-room.1"
+        ];
     }
 }

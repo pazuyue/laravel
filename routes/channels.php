@@ -11,10 +11,13 @@
 |
 */
 
-Broadcast::channel('chat-room.*', function ()  {
-    return true;
+Broadcast::channel('chat-room.*', function ($user)  {
+    //return true;
+    return [
+        'id' => $user->id,
+        'name' => $user->name
+    ];
 });
-
 
 
 Broadcast::channel('App.User.{id}', function ($user, $id) {

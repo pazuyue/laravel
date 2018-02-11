@@ -17,10 +17,26 @@
                 console.log(data.user, data.chatMessage);
             });*/
 
-       echo.private('chat-room.1')
+/*       echo.private('chat-room.1')
            .listen('ChatMessageWasReceived', function (data) {
                console.log(data.user, data.chatMessage);
-           });
+           });*/
+       echo.join(`chat-room.1`)
+           .here((users) => {
+               console.log(users[0]);
+           })
+           .joining((user) => {
+               console.log(users[0]);
+           })
+           .leaving((user) => {
+               console.log(user.name);
+           })
+           .listen('ChatMessageWasReceived', function (data) {
+           console.log(data.user, data.chatMessage);
+       });
+
+
+
 
     </script>
 
