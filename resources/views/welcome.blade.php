@@ -17,10 +17,6 @@
                 console.log(data.user, data.chatMessage);
             });*/
 
-
-       console.log(echo.socketId());
-
-
        echo.private('chat-room.1')
            .listen('ChatMessageWasReceived', function (data) {
                console.log(data.user, data.chatMessage);

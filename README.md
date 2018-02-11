@@ -37,10 +37,9 @@ BROADCAST_DRIVER=pusher
 
 #####位置：D:\phpStudy\WWW\laraver\pusher\vendor\laravel\framework\src\Illuminate\Broadcasting\BroadcastManager.php
 修改auth方法，在其中添加类容
-$pusher_config=$this->app['config']['broadcasting']['connections']['pusher'];
-$pusher = new Pusher($pusher_config['key'], $pusher_config['secret'], $pusher_config['app_id'], true, "http://api.pusherapp.com");
-return $pusher->socket_auth($request['channel_name'], $request['socket_id']);
-
+  $pusher = $this->drivers['pusher'];//$PusherBroadcaster=new PusherBroadcaster($pusher);
+return $pusher->auth($request);
+    
 #####位置： D:\phpStudy\WWW\laraver\pusher\vendor\laravel\framework\README.md
 这里是Puser的说明书，有问题可以参考这里
 
