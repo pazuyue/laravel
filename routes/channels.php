@@ -11,11 +11,12 @@
 |
 */
 
+
+
 Broadcast::channel('chat-room.*', function ($user)  {
     //return true;
     return [
-        'id' => $user->id,
-        'name' => $user->name
+        'user' => $user,
     ];
 });
 

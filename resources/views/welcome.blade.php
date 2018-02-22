@@ -17,11 +17,11 @@
                 console.log(data.user, data.chatMessage);
             });*/
 
-/*       echo.private('chat-room.1')
+       echo.private('chat-room.1')
            .listen('ChatMessageWasReceived', function (data) {
                console.log(data.user, data.chatMessage);
-           });*/
-       echo.join(`chat-room.1`)
+           });
+       /*echo.join(`chat-room.1`)
            .here((users) => {
                console.log(users[0]);
            })
@@ -33,10 +33,7 @@
            })
            .listen('ChatMessageWasReceived', function (data) {
            console.log(data.user, data.chatMessage);
-       });
-
-
-
+       });*/
 
     </script>
 
@@ -44,14 +41,6 @@
             <div class="content">
                 <div id="info">
 
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
         </div>
