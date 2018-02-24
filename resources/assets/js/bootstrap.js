@@ -57,6 +57,6 @@ if (token) {
      broadcaster: 'pusher',
      key: '59d6a0dfdd5203f5463f',
      cluster: 'ap1',
-     //encrypted: true
+     encrypted: true
  });
 

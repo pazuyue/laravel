@@ -10,7 +10,6 @@
     </head>
     <body>
     <script src="js/app.js"></script>
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script>
        /* echo.channel('chat-room')
             .listen('ChatMessageWasReceived', function (data) {

@@ -39,6 +39,7 @@ BROADCAST_DRIVER=pusher
 修改auth方法，在其中添加类容
   $pusher = $this->drivers['pusher'];//$PusherBroadcaster=new PusherBroadcaster($pusher);
 return $pusher->auth($request);
+
     
 #####位置： D:\phpStudy\WWW\laraver\pusher\vendor\laravel\framework\README.md
 这里是Puser的说明书，有问题可以参考这里

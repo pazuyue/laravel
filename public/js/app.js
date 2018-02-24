@@ -14929,6 +14929,7 @@ var Echo = function () {
         key: 'registerjQueryAjaxSetup',
         value: function registerjQueryAjaxSetup() {
             var _this3 = this;
+
             if (typeof jQuery.ajax != 'undefined') {
                 jQuery.ajaxSetup({
                     beforeSend: function beforeSend(xhr) {
@@ -36538,8 +36539,8 @@ window.Pusher = require('pusher-js');
 window.echo = new _laravelEcho2.default({
   broadcaster: 'pusher',
   key: '59d6a0dfdd5203f5463f',
-  cluster: 'ap1'
-  //encrypted: true
+  cluster: 'ap1',
+  encrypted: true
 });
 
 },{"axios":1,"bootstrap-sass":27,"jquery":28,"laravel-echo":29,"lodash":31,"pusher-js":32}]},{},[33]);
