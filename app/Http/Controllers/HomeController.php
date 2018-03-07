@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Permission;
 use App\Role;
-use App\User;
+use App\Tool\Tool;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
+
 
 class HomeController extends Controller
 {
@@ -16,9 +18,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Tool $tool)
     {
         $this->middleware('auth');
+        $this->tool = $tool;
     }
 
     /**
@@ -105,4 +108,71 @@ class HomeController extends Controller
         $permission=$user->can('create-post');*/
 
     }
+
+    public function getfile_to_db(){
+        set_time_limit(3600);
+
+        $xmls=file_get_contents("file/I425_STOCK_CAP_20180306221438636.xml");
+        $xml =simplexml_load_string($xmls);
+        $xmljson= json_encode($xml);
+        $xml=json_decode($xmljson,true);
+        $xml_arr =$xml['product'];
+        foreach ($xml_arr as &$value){
+            $value['sku']=substr_replace($value['sku'],"",-6,3);
+            $row=DB::table('stockA')->where('sku',$value['sku'])->first();
+            if(empty($row->sku)){
+                DB::insert('insert into stockA (sku, stock) values (?, ?)', [''.$value['sku'].'',$value['stock']]);
+            }else{
+                DB::table('stockA')
+                    ->where('sku',$value['sku'])
+                    ->update(['stock' => $row->stock+$value['stock']]);
+            }
+
+        }
+
+     /*   $xmls=file_get_contents("file/201803071429.xml");
+        $xml =simplexml_load_string($xmls);
+        $xmljson= json_encode($xml);
+        $xml=json_decode($xmljson,true);
+        $xml_arr =$xml['RECORD'];
+        $arr =array();
+        foreach ($xml_arr as $key => $value){
+            $arr[$key]['sku']=$value['goods_sku_sn'];
+            $arr[$key]['stock']=$value['total'];
+        }
+
+        DB::table('stockB')->insert($arr);*/
+        dump("ok");
+
+    }
+
+    public function select_rows(){
+      /*  $rows = DB::select('SELECT
+                                a.sku,a.stock,b.sku,b.stock,(a.stock-b.stock) as real_stock
+                            FROM
+                                stockA AS a
+                            INNER  JOIN stockB AS b ON a.sku = b.sku
+                            WHERE a.stock<> ?', [0]);
+
+        foreach ($rows as $key=> $row){
+            //$row->sku=substr_replace($row->sku,"",-6,3);
+            $sku="187".substr($row->sku,-3);
+            $row->sku=substr_replace($row->sku,$sku,-3,6);
+            DB::insert('insert into stockC (sku, stock) values (?, ?)', [''.$row->sku.'',$row->real_stock]);
+        }*/
+
+        //$row=DB::table('stockC')->get();
+
+
+        $this->tool->test();
+       //$row=$this->arrayToXml($row);
+        //file_put_contents("2018-03-07.xml",print_r($row,true));
+
+    }
+
+
+
+
+
+
 }

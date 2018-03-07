@@ -57,3 +57,6 @@ Route::get('/permission/permissionedit/{id}', 'Permission\PermissionController@p
 Route::put('/permission/permissionedit', 'Permission\PermissionController@permissionEdit')->name('Permission-permissionEdit');
 
 
+
+Route::get('/getfile', 'HomeController@getfile')->name('home');
+Route::get('/select_rows', 'HomeController@select_rows')->name('home');
