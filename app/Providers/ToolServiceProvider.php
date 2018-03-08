@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 class ToolServiceProvider extends ServiceProvider
 {
 
-    //protected $defer = true;
+    protected $defer = true;
     /**
      * Bootstrap the application services.
      *
