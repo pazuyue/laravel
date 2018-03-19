@@ -103,4 +103,6 @@ class HomeController extends Controller
         $permission=$user->can('create-post');*/
 
     }
+
+
 }

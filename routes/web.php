@@ -11,14 +11,14 @@
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/addRole', 'HomeController@addRole')->name('home-addRole');
 Route::get('/home/distributionRole', 'HomeController@distributionRole')->name('home-distributionRole');
 Route::get('/home/addPermission', 'HomeController@addPermission')->name('home-addPermission');
-Route::get('/home/hasRole', 'HomeController@hasRole')->name('home-hasRole');*/
+Route::get('/home/hasRole', 'HomeController@hasRole')->name('home-hasRole');
 Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
@@ -55,5 +55,8 @@ Route::get('/permission/permissiondel/{id}', 'Permission\PermissionController@pe
 Route::get('/permission/permissionhaw/{id}', 'Permission\PermissionController@permissionhaw')->name('Permission-permissionhaw');
 Route::get('/permission/permissionedit/{id}', 'Permission\PermissionController@permissionEditShow')->name('Permission-permissionEdit');
 Route::put('/permission/permissionedit', 'Permission\PermissionController@permissionEdit')->name('Permission-permissionEdit');
+
+
+Route::get('/query', 'Query\QueryController@index');
 
 
