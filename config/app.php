@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         App\Providers\ToolServiceProvider::class,
+        App\Providers\EnvatoCustomServiceProvider::class,
 
     ],
 

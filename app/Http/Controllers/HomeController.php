@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Permission;
 use App\Role;
+use App\Tool\Library\Services\Contracts\CustomServiceInterface;
 use App\Tool\Tool;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -18,10 +19,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct(Tool $tool)
+    public function __construct()
     {
         $this->middleware('auth');
-        $this->tool = $tool;
+        //$this->tool = $tool;
     }
 
     /**
@@ -29,8 +30,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CustomServiceInterface $customServiceInstance,Tool $tool)
     {
+       // $tool = resolve('Tool');
+        $tool->test();
+        echo $customServiceInstance->doSomethingUseful();
         return view('welcome');
     }
 
@@ -112,7 +116,7 @@ class HomeController extends Controller
     public function getfile_to_db(){
         set_time_limit(3600);
 
-        $xmls=file_get_contents("file/I425_STOCK_CAP_20180306221438636.xml");
+        $xmls=file_get_contents("file/I425_STOCK_CAP_20180315201944820.xml");
         $xml =simplexml_load_string($xmls);
         $xmljson= json_encode($xml);
         $xml=json_decode($xmljson,true);
@@ -127,7 +131,6 @@ class HomeController extends Controller
                     ->where('sku',$value['sku'])
                     ->update(['stock' => $row->stock+$value['stock']]);
             }
-
         }
 
      /*   $xmls=file_get_contents("file/201803071429.xml");

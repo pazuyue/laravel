@@ -30,7 +30,7 @@ class Tool
     }
 
     public function test(){
-        dump(123);die;
+        dump(123);
     }
 
 }
